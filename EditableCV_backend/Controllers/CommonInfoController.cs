@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using EditableCV_backend.Data.CommonInfoData;
-using EditableCV_backend.DataTransferObjects;
 using EditableCV_backend.DataTransferObjects.CommonInfoDto;
 using EditableCV_backend.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EditableCV_backend.Controllers
 {
-  [Route("api/common-info")]
+    [Route("api/common-info")]
   [ApiController]
   public class CommonInfoController : ControllerBase
   {

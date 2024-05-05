@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace EditableCV_backend.Data.ContactInfoDto
+﻿namespace EditableCV_backend.Data.ContactInfoDto
 {
-  public class ContactInfoUpdateDto
+    public class ContactInfoUpdateDto
   {
     public string Phone { get; set; }
     public string VK { get; set; }

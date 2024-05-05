@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace EditableCV_backend.DataTransferObjects.WorkPlaceDto
 {
-  public class WorkPlaceReadDto
+    public class WorkPlaceReadDto
   {
     public int Id { get; set; }
     public string CompanyName { get; set; }

@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics.Eventing.Reader;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EditableCV_backend.Models
 {
-  public class WorkPlace
+    public class WorkPlace
   {
     public WorkPlace() { }
     public WorkPlace(WorkPlace place)

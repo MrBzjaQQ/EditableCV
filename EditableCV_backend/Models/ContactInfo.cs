@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace EditableCV_backend.Models
 {
-  public class ContactInfo
+    public class ContactInfo
   {
     public ContactInfo() { }
     public ContactInfo(ContactInfo info)

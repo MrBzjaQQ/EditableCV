@@ -2,11 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace EditableCV_backend.Data.WorkPlaceData
 {
-  public class SqlWorkPlaceRepository : IWorkPlaceRepository
+    public class SqlWorkPlaceRepository : IWorkPlaceRepository
   {
     public SqlWorkPlaceRepository(ResumeContext context)
     {

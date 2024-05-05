@@ -1,14 +1,10 @@
-﻿using Microsoft.AspNetCore.Routing;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EditableCV_backend.Models
 {
-  public class EducationalInstitution
+    public class EducationalInstitution
   {
     public EducationalInstitution() { }
     public EducationalInstitution(EducationalInstitution inst)
@@ -40,11 +36,11 @@ namespace EditableCV_backend.Models
         {
           isValid = false;
         }
-        if (StartDate == null || DateTime.MinValue.CompareTo(StartDate) == 0)
+        if (DateTime.MinValue.CompareTo(StartDate) == 0)
         {
           isValid = false;
         }
-        if (EndDate == null || DateTime.MinValue.CompareTo(EndDate) == 0)
+        if (DateTime.MinValue.CompareTo(EndDate) == 0)
         {
           isValid = false;
         }

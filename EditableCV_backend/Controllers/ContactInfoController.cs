@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using EditableCV_backend.Data.ContactInfoData;
 using EditableCV_backend.Data.ContactInfoDto;
 using EditableCV_backend.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EditableCV_backend.Controllers
 {
-  [Route("api/contact-info")]
+    [Route("api/contact-info")]
   [ApiController]
   public class ContactInfoController : ControllerBase
   {

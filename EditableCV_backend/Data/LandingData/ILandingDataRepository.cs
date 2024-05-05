@@ -1,13 +1,8 @@
-﻿using EditableCV_backend.DataTransferObjects.LandingDto;
-using EditableCV_backend.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using EditableCV_backend.Models;
 
 namespace EditableCV_backend.Data.LandingData
 {
-  public interface ILandingDataRepository
+    public interface ILandingDataRepository
   {
     LandingDataModel GetLandingData();
   }

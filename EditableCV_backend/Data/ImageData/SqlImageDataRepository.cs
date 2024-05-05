@@ -1,12 +1,10 @@
 ﻿using EditableCV_backend.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace EditableCV_backend.Data.ImageData
 {
-  public class SqlImageDataRepository : IImageDataRepository
+    public class SqlImageDataRepository : IImageDataRepository
   {
     public SqlImageDataRepository(ResumeContext context)
     {

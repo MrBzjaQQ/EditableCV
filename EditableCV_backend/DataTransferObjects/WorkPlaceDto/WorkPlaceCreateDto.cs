@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EditableCV_backend.DataTransferObjects.WorkPlaceDto
 {
-  public class WorkPlaceCreateDto
+    public class WorkPlaceCreateDto
   {
     [Required]
     [MaxLength(250)]

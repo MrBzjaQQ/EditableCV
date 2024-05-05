@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace EditableCV_backend.Models
 {
-  public class LandingDataModel
+    public class LandingDataModel
   {
     public CommonInfo CommonInfo { get; set; }
     public ContactInfo ContactInfo { get; set; }

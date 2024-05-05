@@ -2,11 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace EditableCV_backend.Data.EducationInstitutionData
 {
-  public class SqlEducationRepository : IEducationRepository
+    public class SqlEducationRepository : IEducationRepository
   {
     public SqlEducationRepository(ResumeContext context)
     {

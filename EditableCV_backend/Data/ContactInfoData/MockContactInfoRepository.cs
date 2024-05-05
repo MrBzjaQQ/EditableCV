@@ -1,12 +1,8 @@
 ﻿using EditableCV_backend.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EditableCV_backend.Data.ContactInfoData
 {
-  public class MockContactInfoRepository : IContactInfoRepository
+    public class MockContactInfoRepository : IContactInfoRepository
   {
     public void AddContactInfo(ContactInfo info)
     {

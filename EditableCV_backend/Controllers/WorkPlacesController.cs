@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AutoMapper;
 using EditableCV_backend.Data.WorkPlaceData;
-using EditableCV_backend.DataTransferObjects;
 using EditableCV_backend.DataTransferObjects.WorkPlaceDto;
 using EditableCV_backend.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EditableCV_backend.Controllers
 {
-  [Route("api/workplaces")]
+    [Route("api/workplaces")]
   [ApiController]
   public class WorkPlacesController : ControllerBase
   {

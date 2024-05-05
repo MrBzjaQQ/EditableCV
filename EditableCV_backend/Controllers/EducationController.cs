@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AutoMapper;
 using EditableCV_backend.Data.EducationInstitutionData;
 using EditableCV_backend.DataTransferObjects.EducationalInstitutionDto;
 using EditableCV_backend.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EditableCV_backend.Controllers
 {
-  [Route("api/education")]
+    [Route("api/education")]
   [ApiController]
   public class EducationController : ControllerBase
   {

@@ -3,14 +3,11 @@ using EditableCV_backend.DataTransferObjects.CommonInfoDto;
 using EditableCV_backend.DataTransferObjects.EducationalInstitutionDto;
 using EditableCV_backend.DataTransferObjects.SkillDto;
 using EditableCV_backend.DataTransferObjects.WorkPlaceDto;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EditableCV_backend.DataTransferObjects.LandingDto
 {
-  public class LandingReadDto
+    public class LandingReadDto
   {
     public CommonInfoReadLandingDto CommonInfo { get; set; }
     public ContactInfoReadDto ContactInfo { get; set; }
