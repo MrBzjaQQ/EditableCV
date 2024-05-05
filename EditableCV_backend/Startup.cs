@@ -47,6 +47,7 @@ namespace EditableCV_backend
             services.AddScoped<ISkillsRepository, SqlSkillsRepository>();
             services.AddScoped<IContactInfoRepository, SqlContactInfoRepository>();
             services.AddScoped<ILandingDataRepository, LandingDataRepository>();
+            services.AddSwaggerGen();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -66,6 +67,12 @@ namespace EditableCV_backend
             {
                 endpoints.MapControllers();
             });
+
+            if (env.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
         }
     }
 }

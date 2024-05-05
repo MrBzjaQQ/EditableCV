@@ -20,7 +20,7 @@
     "EditableCV_backend": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/landing",
+      "launchUrl": "swagger/index.html",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
