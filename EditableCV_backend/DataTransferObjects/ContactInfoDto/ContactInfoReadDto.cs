@@ -2,7 +2,6 @@
 {
     public class ContactInfoReadDto
   {
-    public int Id { get; set; }
     public string Phone { get; set; }
     public string VK { get; set; }
     public string Skype { get; set; }

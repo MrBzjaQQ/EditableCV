@@ -10,7 +10,6 @@ namespace EditableCV_backend
     {
         public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
             var host = CreateHostBuilder(args).Build();
             await MigrateDatabase(host);
             host.Run();

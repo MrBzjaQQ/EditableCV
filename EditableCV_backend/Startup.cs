@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.SpaProxy;
 using Newtonsoft.Json.Serialization;
 
 namespace EditableCV_backend
@@ -73,6 +74,11 @@ namespace EditableCV_backend
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseSpa(config =>
+            {
+                config.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
+            });
         }
     }
 }
