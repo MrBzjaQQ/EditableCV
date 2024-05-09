@@ -1,0 +1,148 @@
+@EditableCV.Server_HostAddress = http://localhost:5232
+
+GET {{EditableCV.Server_HostAddress}}/api/common-info
+
+###
+
+PUT {{EditableCV.Server_HostAddress}}/api/common-info
+Content-Type: application/json
+
+{
+  //CommonInfoCreateDto
+}
+
+###
+
+GET {{EditableCV.Server_HostAddress}}/api/contact-info
+
+###
+
+PUT {{EditableCV.Server_HostAddress}}/api/contact-info
+Content-Type: application/json
+
+{
+  //ContactInfoUpdateDto
+}
+
+###
+
+GET {{EditableCV.Server_HostAddress}}/api/education
+
+###
+
+POST {{EditableCV.Server_HostAddress}}/api/education
+Content-Type: application/json
+
+{
+  //InstitutionCreateDto
+}
+
+###
+
+GET {{EditableCV.Server_HostAddress}}/api/education/0
+
+###
+
+DELETE {{EditableCV.Server_HostAddress}}/api/education/0
+
+###
+
+PUT {{EditableCV.Server_HostAddress}}/api/education/0
+Content-Type: application/json
+
+{
+  //InstitutionUpdateDto
+}
+
+###
+
+PATCH {{EditableCV.Server_HostAddress}}/api/education/0
+Content-Type: application/json
+
+{
+  //JsonPatchDocument
+}
+
+###
+
+GET {{EditableCV.Server_HostAddress}}/api/skills
+
+###
+
+GET {{EditableCV.Server_HostAddress}}/api/landing
+
+###
+
+POST {{EditableCV.Server_HostAddress}}/api/skills
+Content-Type: application/json
+
+{
+  //SkillCreateDto
+}
+
+###
+
+GET {{EditableCV.Server_HostAddress}}/api/skills/0
+
+###
+
+DELETE {{EditableCV.Server_HostAddress}}/api/skills/0
+
+###
+
+PUT {{EditableCV.Server_HostAddress}}/api/skills/0
+Content-Type: application/json
+
+{
+  //SkillUpdateDto
+}
+
+###
+
+PATCH {{EditableCV.Server_HostAddress}}/api/skills/0
+Content-Type: application/json
+
+{
+  //JsonPatchDocument
+}
+
+###
+
+GET {{EditableCV.Server_HostAddress}}/api/workplaces
+
+###
+
+POST {{EditableCV.Server_HostAddress}}/api/workplaces
+Content-Type: application/json
+
+{
+  //WorkPlaceCreateDto
+}
+
+###
+
+GET {{EditableCV.Server_HostAddress}}/api/workplaces/0
+
+###
+
+DELETE {{EditableCV.Server_HostAddress}}/api/workplaces/0
+
+###
+
+PUT {{EditableCV.Server_HostAddress}}/api/workplaces/0
+Content-Type: application/json
+
+{
+  //WorkPlaceUpdateDto
+}
+
+###
+
+PATCH {{EditableCV.Server_HostAddress}}/api/workplaces/0
+Content-Type: application/json
+
+{
+  //JsonPatchDocument
+}
+
+###
