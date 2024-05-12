@@ -31,7 +31,7 @@ import { CvModule } from '../../cv.module';
 })
 export class CvPageComponent {
   $commonInfo: Observable<CommonInfo | undefined>;
-  $contactInfo: Observable<ContactInfo | undefined>;
+  $contactInfo: Observable<ContactInfo[] | undefined>;
   $education: Observable<Institution[] | undefined>;
   $skills: Observable<Skill[] | undefined>;
   $workPlaces: Observable<WorkPlace[] | undefined>;

@@ -20,13 +20,13 @@ namespace EditableCV_backend.Controllers
         }
 
         [HttpGet]
-        public async Task<IList<InstitutionReadDto>> GetAllInstitutions()
+        public async Task<IList<InstitutionReadDto>> GetAllInstitutionsAsync()
         {
             return await _service.GetAllInstitutionsAsync(HttpContext.RequestAborted);
         }
 
-        [HttpGet("{id}", Name = "GetInstitutionById")]
-        public async Task<IActionResult> GetInstitutionById(int id)
+        [HttpGet("{id}", Name = "GetInstitutionByIdAsync")]
+        public async Task<IActionResult> GetInstitutionByIdAsync(int id)
         {
             var result = await _service.GetInstitutionByIdAsync(id, HttpContext.RequestAborted);
             if (!result.IsSuccess)
@@ -39,7 +39,7 @@ namespace EditableCV_backend.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostInstitution(InstitutionCreateDto createInstitution)
+        public async Task<IActionResult> PostInstitutionAsync(InstitutionCreateDto createInstitution)
         {
             var result = await _service.AddInstitutionAsync(createInstitution, HttpContext.RequestAborted);
             if (!result.IsSuccess)
@@ -48,11 +48,11 @@ namespace EditableCV_backend.Controllers
                 return StatusCode((int)result.StatusCode);
             }
 
-            return CreatedAtRoute(nameof(GetInstitutionById), new { Id = result.Result.Id }, result.Result);
+            return CreatedAtRoute(nameof(GetInstitutionByIdAsync), new { Id = result.Result.Id }, result.Result);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutInstitution(int id, InstitutionUpdateDto updateInstitution)
+        public async Task<IActionResult> PutInstitutionAsync(int id, InstitutionUpdateDto updateInstitution)
         {
             var updateResult = await _service.EditInstitutionAsync(id, updateInstitution, HttpContext.RequestAborted);
             if (!updateResult.IsSuccess)
@@ -64,7 +64,7 @@ namespace EditableCV_backend.Controllers
         }
 
         [HttpPatch("{id}")]
-        public async Task<IActionResult> PatchInstitution(int id, JsonPatchDocument<InstitutionUpdateDto> patchDocument)
+        public async Task<IActionResult> PatchInstitutionAsync(int id, JsonPatchDocument<InstitutionUpdateDto> patchDocument)
         {
             var result = await _service.GetInstitutionByIdAsync(id, HttpContext.RequestAborted);
             if (!result.IsSuccess)
@@ -79,11 +79,11 @@ namespace EditableCV_backend.Controllers
                 ModelState.AddModelError($"{logError.Operation.path}_{logError.Operation.op}", logError.ErrorMessage);
             });
 
-            return await PutInstitution(id, institutionToPatch);
+            return await PutInstitutionAsync(id, institutionToPatch);
         }
 
         [HttpDelete("{id}")]
-        public async Task DeleteInstitution(int id)
+        public async Task DeleteInstitutionAsync(int id)
         {
             await _service.DeleteInstitutionAsync(id, HttpContext.RequestAborted);
         }

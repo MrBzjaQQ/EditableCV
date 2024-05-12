@@ -25,7 +25,7 @@ namespace EditableCV_backend.Controllers
             return await _service.GetSkillsAsync(HttpContext.RequestAborted);
         }
 
-        [HttpGet("{id}", Name = "GetSkillById")]
+        [HttpGet("{id}", Name = "GetSkillByIdAsync")]
         public async Task<IActionResult> GetSkillByIdAsync(int id)
         {
             var skillResponse = await _service.GetSkillByIdAsync(id, HttpContext.RequestAborted);

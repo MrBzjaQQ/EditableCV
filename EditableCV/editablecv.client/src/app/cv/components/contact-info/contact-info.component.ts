@@ -10,5 +10,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './contact-info.component.scss'
 })
 export class ContactInfoComponent {
-  @Input() contactInfo?: ContactInfo | null = {};
+  @Input() contactInfos?: ContactInfo[] | null = [];
 }

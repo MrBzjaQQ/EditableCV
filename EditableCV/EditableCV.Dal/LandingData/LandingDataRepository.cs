@@ -17,7 +17,7 @@ namespace EditableCV.Dal.LandingData
             return new LandingDataModel()
             {
                 CommonInfo = await _context.CommonInfos.FirstOrDefaultAsync(cancellationToken),
-                ContactInfo = await _context.ContactInfos.FirstOrDefaultAsync(cancellationToken),
+                ContactInfo = await _context.ContactInfos.ToListAsync(cancellationToken),
                 Education = await _context.EducationalInstitutions.ToListAsync(cancellationToken),
                 Skills = await _context.Skills.ToListAsync(cancellationToken),
                 WorkPlaces = await _context.WorkPlaces.ToListAsync(cancellationToken),

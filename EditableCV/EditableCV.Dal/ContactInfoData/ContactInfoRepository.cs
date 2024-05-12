@@ -12,18 +12,28 @@ namespace EditableCV.Dal.ContactInfoData
             _context = context;
         }
 
-        public async Task AddContactInfoAsync(ContactInfo info, CancellationToken cancellationToken)
+        public async Task CreateContactInfoAsync(ContactInfo info, CancellationToken cancellationToken)
         {
-            var currInfo = await GetContactInfoAsync(cancellationToken);
-            if (currInfo == null)
+            await _context.ContactInfos.AddAsync(info);
+        }
+
+        public async Task DeleteContactInfoAsync(int id, CancellationToken cancellationToken)
+        {
+            var contactInfo = await GetContactInfoAsync(id, cancellationToken);
+            if (contactInfo is not null)
             {
-                _context.ContactInfos.Add(info);
+                _context.ContactInfos.Remove(contactInfo);
             }
         }
 
-        public async Task<ContactInfo?> GetContactInfoAsync(CancellationToken cancellationToken)
+        public async Task<ContactInfo?> GetContactInfoAsync(int id, CancellationToken cancellationToken)
         {
-            return await _context.ContactInfos.FirstOrDefaultAsync(cancellationToken);
+            return await _context.ContactInfos.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        }
+
+        public async Task<IList<ContactInfo>> GetAllContactInfosAsync(CancellationToken cancellationToken)
+        {
+            return await _context.ContactInfos.ToListAsync(cancellationToken);
         }
     }
 }

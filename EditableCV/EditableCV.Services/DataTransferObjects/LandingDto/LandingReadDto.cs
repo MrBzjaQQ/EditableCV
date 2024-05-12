@@ -6,12 +6,12 @@ using EditableCV.Services.WorkPlaceDto;
 
 namespace EditableCV.Services.LandingDto
 {
-    public class LandingReadDto
+    public sealed record LandingReadDto
     {
-        public CommonInfoReadLandingDto CommonInfo { get; set; }
-        public ContactInfoReadDto ContactInfo { get; set; }
-        public IEnumerable<WorkPlaceReadDto> WorkPlaces { get; set; }
-        public IEnumerable<InstitutionReadDto> Education { get; set; }
-        public IEnumerable<SkillReadDto> Skills { get; set; }
+        public CommonInfoReadLandingDto? CommonInfo { get; set; }
+        public IList<ContactInfoReadDto> ContactInfo { get; set; } = Array.Empty<ContactInfoReadDto>();
+        public IList<WorkPlaceReadDto> WorkPlaces { get; set; } = Array.Empty<WorkPlaceReadDto>();
+        public IList<InstitutionReadDto> Education { get; set; } = Array.Empty<InstitutionReadDto>();
+        public IList<SkillReadDto> Skills { get; set; } = Array.Empty<SkillReadDto>();
     }
 }

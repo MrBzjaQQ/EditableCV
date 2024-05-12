@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using EditableCV.Dal.ContactInfoData;
+using EditableCV.Resources;
 using EditableCV.Services.ContactInfoDto;
+using EditableCV.Services.DataTransferObjects.ContactInfoDto;
+using EditableCV.Services.Shared;
 
 namespace EditableCV.Services.ContactInfo;
 internal sealed class ContactInfoService(IContactInfoRepository repository, IMapper mapper): IContactInfoService
@@ -8,26 +11,47 @@ internal sealed class ContactInfoService(IContactInfoRepository repository, IMap
     private readonly IContactInfoRepository _repository = repository;
     private readonly IMapper _mapper = mapper;
 
-    public async Task<ContactInfoReadDto?> GetContactInfoAsync(CancellationToken cancellationToken)
+    public async Task<IList<ContactInfoReadDto>> GetAllContactInfosAsync(CancellationToken cancellationToken)
     {
-        var info = await _repository.GetContactInfoAsync(cancellationToken);
-        if (info == null)
-        {
-            return null;
-        }
-
-        return _mapper.Map<ContactInfoReadDto>(info);
+        var contactInfos = await _repository.GetAllContactInfosAsync(cancellationToken);
+        return _mapper.Map<IList<ContactInfoReadDto>>(contactInfos);
     }
 
-    public async Task PutContactInfoAsync(ContactInfoUpdateDto updateInfoDto, CancellationToken cancellationToken)
+    public async Task<Response<ContactInfoReadDto>> GetContactInfoByIdAsync(int id, CancellationToken cancellationToken)
     {
-        var info = await GetContactInfoAsync(cancellationToken);
-        if (info == null)
+        var contactInfo = await _repository.GetContactInfoAsync(id, cancellationToken);
+        if (contactInfo is null)
         {
-            var mappedInfo = _mapper.Map<Domain.Models.ContactInfo>(updateInfoDto);
-            await _repository.AddContactInfoAsync(mappedInfo, cancellationToken);
-            await _repository.SaveChangesAsync(cancellationToken);
-            return;
+            return Response<ContactInfoReadDto>.CreateFailed(System.Net.HttpStatusCode.NotFound, string.Format(ErrorStrings.NotFoundByIdTemplate, id));
         }
+
+        return Response<ContactInfoReadDto>.CreateSuccess(_mapper.Map<ContactInfoReadDto>(contactInfo));
+    }
+
+    public async Task<ContactInfoReadDto> AddContactInfoAsync(ContactInfoCreateDto contactInfoUpdateDto, CancellationToken cancellationToken)
+    {
+        var contactInfo = _mapper.Map<Domain.Models.ContactInfo>(contactInfoUpdateDto);
+        await _repository.CreateContactInfoAsync(contactInfo, cancellationToken);
+        await _repository.SaveChangesAsync(cancellationToken);
+        return _mapper.Map<ContactInfoReadDto>(contactInfo);
+    }
+
+    public async Task<Response> EditContactInfoAsync(int id, ContactInfoUpdateDto contactInfoUpdateDto, CancellationToken cancellationToken)
+    {
+        var contactInfo = await _repository.GetContactInfoAsync(id, cancellationToken);
+        if (contactInfo is null)
+        {
+            return Response.CreateFailed(System.Net.HttpStatusCode.NotFound, string.Format(ErrorStrings.NotFoundByIdTemplate, id));
+        }
+
+        _mapper.Map(contactInfoUpdateDto, contactInfo);
+        await _repository.SaveChangesAsync(cancellationToken);
+        return Response.CreateSuccess(System.Net.HttpStatusCode.NoContent);
+    }
+
+    public async Task DeleteContactInfoAsync(int id, CancellationToken cancellationToken)
+    {
+        await _repository.DeleteContactInfoAsync(id, cancellationToken);
+        await _repository.SaveChangesAsync(cancellationToken);
     }
 }

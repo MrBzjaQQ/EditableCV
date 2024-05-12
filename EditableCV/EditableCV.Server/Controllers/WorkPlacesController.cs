@@ -25,8 +25,8 @@ namespace EditableCV_backend.Controllers
             return await _service.GetAllWorkPlacesAsync(HttpContext.RequestAborted);
         }
 
-        [HttpGet("{id}", Name = "GetWorkPlace")]
-        public async Task<IActionResult> GetWorkPlace(int id)
+        [HttpGet("{id}", Name = "GetWorkPlaceAsync")]
+        public async Task<IActionResult> GetWorkPlaceAsync(int id)
         {
             var getResult = await _service.GetWorkPlaceByIdAsync(id, HttpContext.RequestAborted);
             if (!getResult.IsSuccess)
@@ -39,14 +39,14 @@ namespace EditableCV_backend.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostWorkPlace(WorkPlaceCreateDto workPlaceDto)
+        public async Task<IActionResult> PostWorkPlaceAsync(WorkPlaceCreateDto workPlaceDto)
         {
             var workPlace = await _service.AddWorkPlaceAsync(workPlaceDto, HttpContext.RequestAborted);
-            return CreatedAtRoute(nameof(GetWorkPlace), new { Id = workPlace.Id }, workPlace);
+            return CreatedAtRoute(nameof(GetWorkPlaceAsync), new { Id = workPlace.Id }, workPlace);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutWorkPlace(int id, WorkPlaceUpdateDto workPlaceDto)
+        public async Task<IActionResult> PutWorkPlaceAsync(int id, WorkPlaceUpdateDto workPlaceDto)
         {
             var putResponse = await _service.EditWorkPlaceAsync(id, workPlaceDto, HttpContext.RequestAborted);
             if (!putResponse.IsSuccess)
@@ -59,7 +59,7 @@ namespace EditableCV_backend.Controllers
         }
 
         [HttpPatch("{id}")]
-        public async Task<IActionResult> PatchWorkPlace(int id, JsonPatchDocument<WorkPlaceUpdateDto> patchDocument)
+        public async Task<IActionResult> PatchWorkPlaceAsync(int id, JsonPatchDocument<WorkPlaceUpdateDto> patchDocument)
         {
             var workPlaceResponse = await _service.GetWorkPlaceByIdAsync(id, HttpContext.RequestAborted);
             if (!workPlaceResponse.IsSuccess)
@@ -68,17 +68,17 @@ namespace EditableCV_backend.Controllers
                 return StatusCode((int)workPlaceResponse.StatusCode);
             }
 
-            WorkPlaceUpdateDto workPlaceToPatch = _mapper.Map<WorkPlaceUpdateDto>(workPlaceResponse.Result);
+            var workPlaceToPatch = _mapper.Map<WorkPlaceUpdateDto>(workPlaceResponse.Result);
             patchDocument.ApplyTo(workPlaceToPatch, logError =>
             {
                 ModelState.AddModelError($"{logError.Operation.path}_{logError.Operation.op}", logError.ErrorMessage);
             });
 
-            return await PutWorkPlace(id, workPlaceToPatch);
+            return await PutWorkPlaceAsync(id, workPlaceToPatch);
         }
 
         [HttpDelete("{id}")]
-        public async Task DeleteWorkPlace(int id)
+        public async Task DeleteWorkPlaceAsync(int id)
         {
             await _service.DeleteWorkPlaceAsync(id, HttpContext.RequestAborted);
         }

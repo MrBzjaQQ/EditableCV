@@ -6,7 +6,7 @@ import { WorkPlace } from "./work-place";
 
 export interface CvData {
     commonInfo?: CommonInfo;
-    contactInfo?: ContactInfo;
+    contactInfo?: ContactInfo[];
     workPlaces?: WorkPlace[];
     education?: Institution[];
     skills?: Skill[];
