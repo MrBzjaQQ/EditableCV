@@ -1,4 +1,5 @@
 <section class="common-info">
     <h2 class="common-info__name">{{ fullName }}</h2>
     <p class="common-info__age">{{ commonInfo?.age }}</p>
+    <img class="common-info__photo" *ngIf="commonInfo?.photoUrl" [src]="commonInfo?.photoUrl">
 </section>

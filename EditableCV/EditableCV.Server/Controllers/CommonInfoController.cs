@@ -1,6 +1,7 @@
 ﻿using EditableCV.Services.CommonInfoDto;
 using EditableCV.Services.CommonInfo;
 using Microsoft.AspNetCore.Mvc;
+using EditableCV.Server.Controllers;
 
 namespace EditableCV_backend.Controllers
 {
@@ -17,7 +18,7 @@ namespace EditableCV_backend.Controllers
         [HttpGet]
         public async Task<ActionResult<CommonInfoReadDto>> GetCommonInfoAsync()
         {
-            var commonInfo = await _service.GetCommonInfoAsync(HttpContext.RequestAborted);
+            var commonInfo = await _service.GetCommonInfoAsync(FileController.FileControllerUrl, HttpContext.RequestAborted);
             if (commonInfo == null)
             {
                 return NotFound();

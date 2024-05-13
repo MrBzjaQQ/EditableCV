@@ -2,13 +2,10 @@
 
 namespace EditableCV.Domain.Models
 {
-    public record ImageModel
+    public sealed record FileModel
     {
         [Key]
         public int Id { get; init; }
-        [Required]
-        public string Name { get; init; }
-        [Required]
-        public byte[] Data { get; init; }
+        public string FileName { get; init; } = string.Empty;
     }
 }

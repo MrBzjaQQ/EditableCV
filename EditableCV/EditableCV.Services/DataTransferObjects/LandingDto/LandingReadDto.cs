@@ -8,7 +8,7 @@ namespace EditableCV.Services.LandingDto
 {
     public sealed record LandingReadDto
     {
-        public CommonInfoReadLandingDto? CommonInfo { get; set; }
+        public CommonInfoReadDto? CommonInfo { get; set; }
         public IList<ContactInfoReadDto> ContactInfo { get; set; } = Array.Empty<ContactInfoReadDto>();
         public IList<WorkPlaceReadDto> WorkPlaces { get; set; } = Array.Empty<WorkPlaceReadDto>();
         public IList<InstitutionReadDto> Education { get; set; } = Array.Empty<InstitutionReadDto>();

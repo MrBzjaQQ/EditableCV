@@ -3,5 +3,5 @@
 namespace EditableCV.Services.Landing;
 public interface ILandingService
 {
-    Task<LandingReadDto> GetLandingDataAsync(CancellationToken cancellationToken);
+    Task<LandingReadDto> GetLandingDataAsync(string photoControllerUrl, CancellationToken cancellationToken);
 }

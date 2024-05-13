@@ -1,12 +1,12 @@
 ﻿namespace EditableCV.Services.CommonInfoDto
 {
-    public class CommonInfoReadDto
-  {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string PatronymicName { get; set; }
-    public DateTime DateOfBirth { get; set; }
-    // public ImageModel Photo { get; set; }
-  }
+    public sealed record CommonInfoReadDto
+    {
+        public string FirstName { get; init; } = string.Empty;
+        public string LastName { get; init; } = string.Empty;
+        public string PatronymicName { get; init; } = string.Empty;
+        public int Age { get; init; }
+        public string? PhotoUrl { get; init; }
+    }
 }
 

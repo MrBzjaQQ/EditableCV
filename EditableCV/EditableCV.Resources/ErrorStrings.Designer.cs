@@ -61,6 +61,15 @@ namespace EditableCV.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Изображение уже существует.
+        /// </summary>
+        public static string ImageAlreadyExists {
+            get {
+                return ResourceManager.GetString("ImageAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Сущность с id = {0} не найдена.
         /// </summary>
         public static string NotFoundByIdTemplate {

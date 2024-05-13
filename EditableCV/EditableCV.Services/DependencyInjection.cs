@@ -1,6 +1,7 @@
 ﻿using EditableCV.Services.CommonInfo;
 using EditableCV.Services.ContactInfo;
 using EditableCV.Services.Education;
+using EditableCV.Services.Files;
 using EditableCV.Services.Landing;
 using EditableCV.Services.Skills;
 using EditableCV.Services.WorkPlaces;
@@ -18,6 +19,7 @@ public static class DependencyInjection
         services.AddTransient<ISkillsService, SkillsService>();
         services.AddTransient<IWorkPlacesService, WorkPlacesService>();
         services.AddTransient<ILandingService, LandingService>();
+        services.AddTransient<IFilesService, FilesService>();
 
         return services;
     }

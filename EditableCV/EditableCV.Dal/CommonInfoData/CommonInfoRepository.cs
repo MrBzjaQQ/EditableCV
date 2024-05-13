@@ -14,7 +14,7 @@ namespace EditableCV.Dal.CommonInfoData
         }
         public Task<CommonInfo?> GetCommonInfoAsync(CancellationToken cancellationToken)
         {
-            return _context.CommonInfos.FirstOrDefaultAsync(cancellationToken);
+            return _context.CommonInfos.Include(x => x.Photo).FirstOrDefaultAsync(cancellationToken);
         }
 
         public async Task AddCommonInfoAsync(CommonInfo info, CancellationToken cancellationToken)

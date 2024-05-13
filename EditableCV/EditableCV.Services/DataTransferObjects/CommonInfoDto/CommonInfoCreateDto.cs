@@ -2,15 +2,15 @@
 
 namespace EditableCV.Services.CommonInfoDto
 {
-    public class CommonInfoCreateDto
-  {
-    [Required]
-    public string FirstName { get; set; }
-    [Required]
-    public string LastName { get; set; }
-    public string PatronymicName { get; set; }
-    [Required]
-    public DateTime DateOfBirth { get; set; }
-    // public ImageModel Photo { get; set; }
-  }
+    public sealed record CommonInfoCreateDto
+    {
+        [Required]
+        public string FirstName { get; init; } = string.Empty;
+        [Required]
+        public string LastName { get; init; } = string.Empty;
+        public string PatronymicName { get; init; } = string.Empty;
+        [Required]
+        public DateTime DateOfBirth { get; init; }
+        public string? PhotoFileName { get; init; } = string.Empty;
+    }
 }

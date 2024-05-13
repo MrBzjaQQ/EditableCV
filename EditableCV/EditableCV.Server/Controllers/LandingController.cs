@@ -2,7 +2,7 @@
 using EditableCV.Services.LandingDto;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EditableCV_backend.Controllers
+namespace EditableCV.Server.Controllers
 {
     [Route("api/landing")]
     [ApiController]
@@ -18,7 +18,7 @@ namespace EditableCV_backend.Controllers
         [HttpGet]
         public async Task<LandingReadDto> GetLandingData()
         {
-            return await _service.GetLandingDataAsync(HttpContext.RequestAborted);
+            return await _service.GetLandingDataAsync(FileController.FileControllerUrl, HttpContext.RequestAborted);
         }
     }
 }

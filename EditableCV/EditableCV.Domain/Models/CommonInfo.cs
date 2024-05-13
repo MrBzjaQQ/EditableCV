@@ -16,15 +16,20 @@ namespace EditableCV.Domain.Models
             Photo = info.Photo;
         }
         [Key]
-        public int Id { get; init; }
+        public int Id { get; private set; }
         [Required]
-        public string FirstName { get; init; }
+        public string FirstName { get; private set; }
         [Required]
-        public string LastName { get; init; }
-        public string PatronymicName { get; init; }
-        public DateTime DateOfBirth { get; init; }
-        [ForeignKey("PhotoId")]
-        public ImageModel? Photo { get; init; }
+        public string LastName { get; private set; }
+        public string PatronymicName { get; private set; }
+        public DateTime DateOfBirth { get; private set; }
 
+        [ForeignKey("FileId")]
+        public FileModel? Photo { get; private set; }
+
+        public void SetPhoto(FileModel? photo)
+        {
+            Photo = photo;
+        }
     }
 }
