@@ -13,7 +13,6 @@ namespace EditableCV.Services.WorkPlaceDto
         public string Experience { get; set; }
         [Required]
         public DateTime StartWorkingDate { get; set; }
-        [Required]
-        public DateTime EndWorkingDate { get; set; }
+        public DateTime? EndWorkingDate { get; set; }
     }
 }

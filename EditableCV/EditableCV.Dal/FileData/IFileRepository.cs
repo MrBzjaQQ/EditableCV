@@ -4,9 +4,9 @@ namespace EditableCV.Dal.FileData
 {
     public interface IFileRepository : IRepository
     {
-        Task CreateFileAsync(FileModel image, CancellationToken cancellationToken);
-        void DeleteFile(FileModel image);
-        Task<IList<FileModel>> GetAllFilesAsync(CancellationToken cancellationToken);
-        Task<FileModel?> GetFileByNameAsync(string fileName, CancellationToken cancellationToken);
+        Task CreateFileAsync(Domain.Models.StoredFile image, CancellationToken cancellationToken);
+        void DeleteFile(Domain.Models.StoredFile image);
+        Task<IList<Domain.Models.StoredFile>> GetAllFilesAsync(CancellationToken cancellationToken);
+        Task<Domain.Models.StoredFile?> GetFileByNameAsync(string fileName, CancellationToken cancellationToken);
     }
 }

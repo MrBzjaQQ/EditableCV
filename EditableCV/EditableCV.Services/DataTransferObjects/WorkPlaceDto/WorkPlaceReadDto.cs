@@ -10,13 +10,9 @@
     public bool IsCurrentlyWorking {
       get
       {
-        return DateTime.Compare(EndWorkingDate, DateTime.Now) > 0;
-      }
-      set
-      {
-        IsCurrentlyWorking = value;
+        return !EndWorkingDate.HasValue;
       }
     }
-    public DateTime EndWorkingDate { get; set; }
+    public DateTime? EndWorkingDate { get; set; }
   }
 }

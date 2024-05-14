@@ -5,7 +5,6 @@ using EditableCV.Services.ContactInfoDto;
 using EditableCV.Services.DataTransferObjects.ContactInfoDto;
 using EditableCV.Services.DataTransferObjects.FileDto;
 using EditableCV.Services.EducationalInstitutionDto;
-using EditableCV.Services.LandingDto;
 using EditableCV.Services.SkillDto;
 using EditableCV.Services.WorkPlaceDto;
 
@@ -20,7 +19,6 @@ namespace EditableCV.Server.Profiles
             CreateEducationMapping();
             CreateSkillMapping();
             CreateContactInfoMapping();
-            CreateLandingDataMapping();
             CreateImageMapping();
         }
 
@@ -68,14 +66,9 @@ namespace EditableCV.Server.Profiles
             CreateMap<ContactInfoCreateDto, ContactInfo>();
         }
 
-        private void CreateLandingDataMapping()
-        {
-            CreateMap<LandingDataModel, LandingReadDto>();
-        }
-
         private void CreateImageMapping()
         {
-            CreateMap<FileModel, FileReadDto>();
+            CreateMap<Domain.Models.StoredFile, FileReadDto>();
         }
 
         private int GetAgeByDateOfBirth(DateTime dateOfBirth)

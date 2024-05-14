@@ -6,7 +6,7 @@ namespace EditableCV.Dal;
 public interface IResumeContext: IDbContext
 {
     DbSet<WorkPlace> WorkPlaces { get; }
-    DbSet<FileModel> Images { get; }
+    DbSet<Domain.Models.StoredFile> Files { get; }
     DbSet<CommonInfo> CommonInfos { get; }
     DbSet<EducationalInstitution> EducationalInstitutions { get; }
     DbSet<Skill> Skills { get; }

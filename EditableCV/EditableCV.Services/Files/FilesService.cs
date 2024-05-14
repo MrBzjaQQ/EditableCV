@@ -38,7 +38,7 @@ internal sealed class FilesService: IFilesService
             return Response<FileReadDto>.CreateFailed(System.Net.HttpStatusCode.BadRequest, ErrorStrings.ImageAlreadyExists);
         }
 
-        var newImage = new Domain.Models.FileModel { FileName = fileName };
+        var newImage = new Domain.Models.StoredFile(fileName);
         await _repository.CreateFileAsync(newImage, cancellationToken);
         await using var stream = new FileStream(Path.Combine(_defaultPath, fileName), FileMode.CreateNew, FileAccess.Write);
         await fileData.CopyToAsync(stream);

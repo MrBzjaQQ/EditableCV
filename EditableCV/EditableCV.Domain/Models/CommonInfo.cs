@@ -1,35 +1,16 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿namespace EditableCV.Domain.Models;
 
-namespace EditableCV.Domain.Models
+public sealed record CommonInfo
 {
-    public record CommonInfo
+    public int Id { get; private set; }
+    public string FirstName { get; private set; } = string.Empty;
+    public string LastName { get; private set; } = string.Empty;
+    public string? PatronymicName { get; private set; } = string.Empty;
+    public DateTime DateOfBirth { get; private set; }
+    public StoredFile? Photo { get; private set; }
+
+    public void SetPhoto(StoredFile? photo)
     {
-        public CommonInfo() { }
-        public CommonInfo(CommonInfo info)
-        {
-            Id = info.Id;
-            FirstName = info.FirstName;
-            LastName = info.LastName;
-            PatronymicName = info.PatronymicName;
-            DateOfBirth = info.DateOfBirth;
-            Photo = info.Photo;
-        }
-        [Key]
-        public int Id { get; private set; }
-        [Required]
-        public string FirstName { get; private set; }
-        [Required]
-        public string LastName { get; private set; }
-        public string PatronymicName { get; private set; }
-        public DateTime DateOfBirth { get; private set; }
-
-        [ForeignKey("FileId")]
-        public FileModel? Photo { get; private set; }
-
-        public void SetPhoto(FileModel? photo)
-        {
-            Photo = photo;
-        }
+        Photo = photo;
     }
 }

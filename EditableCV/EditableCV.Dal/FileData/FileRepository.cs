@@ -12,24 +12,24 @@ namespace EditableCV.Dal.FileData
             _context = context;
         }
 
-        public async Task CreateFileAsync(FileModel file, CancellationToken cancellationToken)
+        public async Task CreateFileAsync(Domain.Models.StoredFile file, CancellationToken cancellationToken)
         {
-            await _context.Images.AddAsync(file, cancellationToken);
+            await _context.Files.AddAsync(file, cancellationToken);
         }
 
-        public void DeleteFile(FileModel file)
+        public void DeleteFile(Domain.Models.StoredFile file)
         {
-            _context.Images.Remove(file);
+            _context.Files.Remove(file);
         }
 
-        public async Task<IList<FileModel>> GetAllFilesAsync(CancellationToken cancellationToken)
+        public async Task<IList<Domain.Models.StoredFile>> GetAllFilesAsync(CancellationToken cancellationToken)
         {
-            return await _context.Images.ToListAsync(cancellationToken);
+            return await _context.Files.ToListAsync(cancellationToken);
         }
 
-        public async Task<FileModel?> GetFileByNameAsync(string fileName, CancellationToken cancellationToken)
+        public async Task<Domain.Models.StoredFile?> GetFileByNameAsync(string fileName, CancellationToken cancellationToken)
         {
-            return await _context.Images.FirstOrDefaultAsync(file => file.FileName == fileName, cancellationToken);
+            return await _context.Files.FirstOrDefaultAsync(file => file.FileName == fileName, cancellationToken);
         }
     }
 }
