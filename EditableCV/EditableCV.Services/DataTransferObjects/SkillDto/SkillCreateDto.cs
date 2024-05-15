@@ -1,11 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace EditableCV.Services.SkillDto;
 
-namespace EditableCV.Services.SkillDto
+public sealed record SkillCreateDto
 {
-    public class SkillCreateDto
-  {
-    [Required]
-    public string Name { get; set; }
-    public string Description { get; set; }
-  }
+    public string Name { get; init; } = string.Empty;
+    public string? Description { get; set; }
 }

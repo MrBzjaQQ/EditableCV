@@ -1,21 +1,18 @@
-﻿using System;
+﻿namespace EditableCV.Services.EducationalInstitutionDto;
 
-namespace EditableCV.Services.EducationalInstitutionDto
+public sealed record InstitutionReadDto
 {
-    public class InstitutionReadDto
-  {
-    public int Id { get; set; }
-    public string Institution { get; set; }
-    public string Faculty { get; set; }
-    public DateTime StartDate { get; set; }
-    public DateTime EndDate { get; set; }
-    public string Progress { get; set; }
+    public int Id { get; init; }
+    public string Institution { get; init; } = string.Empty;
+    public string? Faculty { get; init; }
+    public DateTime StartDate { get; init; }
+    public DateTime? EndDate { get; init; }
+    public string? Progress { get; init; }
     public bool IsCurrentlyStudying
     {
-      get
-      {
-        return DateTime.Compare(EndDate, DateTime.Now) > 0;
-      }
+        get
+        {
+            return !EndDate.HasValue;
+        }
     }
-  }
 }

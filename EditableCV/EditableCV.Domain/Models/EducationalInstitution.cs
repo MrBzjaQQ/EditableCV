@@ -6,7 +6,7 @@ public sealed record EducationalInstitution
 {
     public int Id { get; private set; }
     public string Institution { get; private set; } = null!;
-    public string Faculty { get; private set; } = null!;
+    public string? Faculty { get; private set; }
     public DateTime StartDate { get; private set; }
     public DateTime? EndDate { get; private set; }
     public string? Progress { get; private set; }

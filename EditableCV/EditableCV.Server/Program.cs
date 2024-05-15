@@ -14,6 +14,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var connectionString = builder.Configuration.GetConnectionString("ResumeConnection");
 builder.Services.AddDatabase(connectionString);
+builder.Services.AddValidation();
 builder.Services.AddRepositories();
 builder.Services.AddApplicationServices();
 var app = builder.Build();

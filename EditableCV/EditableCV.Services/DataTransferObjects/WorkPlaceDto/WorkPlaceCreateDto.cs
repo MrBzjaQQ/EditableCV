@@ -1,18 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace EditableCV.Services.WorkPlaceDto;
 
-namespace EditableCV.Services.WorkPlaceDto
+public sealed record WorkPlaceCreateDto
 {
-    public class WorkPlaceCreateDto
-    {
-        [Required]
-        [MaxLength(250)]
-        public string CompanyName { get; set; }
-        [Required]
-        [MaxLength(250)]
-        public string Position { get; set; }
-        public string Experience { get; set; }
-        [Required]
-        public DateTime StartWorkingDate { get; set; }
-        public DateTime? EndWorkingDate { get; set; }
-    }
+    public string CompanyName { get; init; } = string.Empty;
+    public string Position { get; init; } = string.Empty;
+    public string? Experience { get; init; }
+    public DateTime StartWorkingDate { get; init; }
+    public DateTime? EndWorkingDate { get; init; }
 }

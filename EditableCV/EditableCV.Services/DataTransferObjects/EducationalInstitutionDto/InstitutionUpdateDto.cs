@@ -1,16 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace EditableCV.Services.EducationalInstitutionDto;
 
-namespace EditableCV.Services.EducationalInstitutionDto
+public sealed record InstitutionUpdateDto
 {
-    public class InstitutionUpdateDto
-  {
-    [Required]
-    public string Institution { get; set; }
-    public string Faculty { get; set; }
-    [Required]
-    public DateTime StartDate { get; set; }
-    [Required]
-    public DateTime EndDate { get; set; }
-    public string Progress { get; set; }
-  }
+    public string Institution { get; init; } = string.Empty;
+    public string? Faculty { get; init; }
+    public DateTime StartDate { get; init; }
+    public DateTime? EndDate { get; init; }
+    public string? Progress { get; init; }
 }

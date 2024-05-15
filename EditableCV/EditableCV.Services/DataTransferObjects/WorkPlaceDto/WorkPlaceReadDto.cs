@@ -1,18 +1,18 @@
-﻿namespace EditableCV.Services.WorkPlaceDto
+﻿namespace EditableCV.Services.WorkPlaceDto;
+
+public sealed record WorkPlaceReadDto
 {
-    public class WorkPlaceReadDto
-  {
-    public int Id { get; set; }
-    public string CompanyName { get; set; }
-    public string Position { get; set; }
-    public string Experience { get; set; }
-    public DateTime StartWorkingDate { get; set; }
-    public bool IsCurrentlyWorking {
-      get
-      {
-        return !EndWorkingDate.HasValue;
-      }
+    public int Id { get; init; }
+    public string CompanyName { get; init; } = string.Empty;
+    public string Position { get; init; } = string.Empty;
+    public string? Experience { get; init; }
+    public DateTime StartWorkingDate { get; init; }
+    public bool IsCurrentlyWorking
+    {
+        get
+        {
+            return !EndWorkingDate.HasValue;
+        }
     }
-    public DateTime? EndWorkingDate { get; set; }
-  }
+    public DateTime? EndWorkingDate { get; init; }
 }
