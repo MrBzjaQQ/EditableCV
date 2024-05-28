@@ -1,5 +1,6 @@
 ﻿using EditableCV.Services.Landing;
 using EditableCV.Services.LandingDto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EditableCV.Server.Controllers
@@ -16,6 +17,7 @@ namespace EditableCV.Server.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<LandingReadDto> GetLandingData()
         {
             return await _service.GetLandingDataAsync(FileController.FileControllerUrl, HttpContext.RequestAborted);
