@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EditableCV.Server.Controllers;
 using EditableCV.Services.WorkPlaceDto;
 using EditableCV.Services.WorkPlaces;
 using Microsoft.AspNetCore.JsonPatch;
@@ -22,13 +23,13 @@ namespace EditableCV_backend.Controllers
         [HttpGet]
         public async Task<IList<WorkPlaceReadDto>> GetAllWorkPlacesAsync()
         {
-            return await _service.GetAllWorkPlacesAsync(HttpContext.RequestAborted);
+            return await _service.GetAllWorkPlacesAsync(FileController.FileControllerUrl, HttpContext.RequestAborted);
         }
 
         [HttpGet("{id}", Name = "GetWorkPlaceAsync")]
         public async Task<IActionResult> GetWorkPlaceAsync(int id)
         {
-            var getResult = await _service.GetWorkPlaceByIdAsync(id, HttpContext.RequestAborted);
+            var getResult = await _service.GetWorkPlaceByIdAsync(id, FileController.FileControllerUrl, HttpContext.RequestAborted);
             if (!getResult.IsSuccess)
             {
                 ModelState.AddModelError(Enum.GetName(getResult.StatusCode) ?? string.Empty, getResult.ErrorMessage);
@@ -41,7 +42,7 @@ namespace EditableCV_backend.Controllers
         [HttpPost]
         public async Task<IActionResult> PostWorkPlaceAsync(WorkPlaceCreateDto workPlaceDto)
         {
-            var workPlace = await _service.AddWorkPlaceAsync(workPlaceDto, HttpContext.RequestAborted);
+            var workPlace = await _service.AddWorkPlaceAsync(workPlaceDto, FileController.FileControllerUrl, HttpContext.RequestAborted);
             return CreatedAtRoute(nameof(GetWorkPlaceAsync), new { Id = workPlace.Id }, workPlace);
         }
 
@@ -61,7 +62,7 @@ namespace EditableCV_backend.Controllers
         [HttpPatch("{id}")]
         public async Task<IActionResult> PatchWorkPlaceAsync(int id, JsonPatchDocument<WorkPlaceUpdateDto> patchDocument)
         {
-            var workPlaceResponse = await _service.GetWorkPlaceByIdAsync(id, HttpContext.RequestAborted);
+            var workPlaceResponse = await _service.GetWorkPlaceByIdAsync(id, FileController.FileControllerUrl, HttpContext.RequestAborted);
             if (!workPlaceResponse.IsSuccess)
             {
                 ModelState.AddModelError(Enum.GetName(workPlaceResponse.StatusCode) ?? string.Empty, workPlaceResponse.ErrorMessage);

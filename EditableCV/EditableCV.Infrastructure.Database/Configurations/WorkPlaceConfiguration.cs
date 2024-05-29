@@ -10,5 +10,6 @@ internal sealed class WorkPlaceConfiguration : IEntityTypeConfiguration<WorkPlac
         builder.HasKey(x => x.Id);
         builder.Property(x => x.CompanyName).HasMaxLength(250);
         builder.Property(x => x.Position).HasMaxLength(250);
+        builder.HasOne(x => x.Logo).WithOne();
     }
 }

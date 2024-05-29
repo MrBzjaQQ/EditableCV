@@ -7,4 +7,6 @@ public sealed record WorkPlaceCreateDto
     public string? Experience { get; init; }
     public DateTime StartWorkingDate { get; init; }
     public DateTime? EndWorkingDate { get; init; }
+    public string? WebSite { get; init; }
+    public string? LogoFileName { get; init; }
 }

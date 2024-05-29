@@ -1,7 +1,9 @@
 <article class="work-places">
     <h3 class="work-places__title">Опыт работы</h3>
     <section *ngFor="let workplace of workPlaces" class="work-place">
+        <img *ngIf="workplace.logoUrl" [src]="workplace.logoUrl" class="work-place__logo">
         <div class="work-place__company-name">{{ workplace.companyName }}</div>
+        <div *ngIf="workplace.webSite" class="work-place__web-site">{{ workplace.webSite }}</div>
         <div class="work-place__position">{{ workplace.position }}</div>
         <div class="work-place__dates">
             <span class="work-place__date">{{ workplace.startWorkingDate | date }}</span>
@@ -11,7 +13,7 @@
                 <span class="work-place__date">{{ workplace.endWorkingDate | date }}</span>
             </ng-template>
         </div>
-        <div class="work-place__experience">
+        <div *ngIf="workplace.experience" class="work-place__experience">
             {{ workplace.experience }}
         </div>
     </section>

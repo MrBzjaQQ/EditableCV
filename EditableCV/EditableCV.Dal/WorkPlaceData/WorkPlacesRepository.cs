@@ -14,12 +14,12 @@ namespace EditableCV.Dal.WorkPlaceData
 
         public async Task<IList<WorkPlace>> GetAllWorkPlacesAsync(CancellationToken cancellationToken)
         {
-            return await _context.WorkPlaces.ToListAsync(cancellationToken);
+            return await _context.WorkPlaces.Include(x => x.Logo).ToListAsync(cancellationToken);
         }
 
         public async Task<WorkPlace?> GetWorkPlaceByIdAsync(int id, CancellationToken cancellationToken)
         {
-            return await _context.WorkPlaces.FirstOrDefaultAsync(item => item.Id == id, cancellationToken);
+            return await _context.WorkPlaces.Include(x => x.Logo).FirstOrDefaultAsync(item => item.Id == id, cancellationToken);
         }
 
         public async Task CreateWorkPlaceAsync(WorkPlace place, CancellationToken cancellationToken)

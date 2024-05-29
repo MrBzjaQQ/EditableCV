@@ -10,6 +10,8 @@ public sealed record WorkPlace
     public string? Experience { get; private set; }
     public DateTime StartWorkingDate { get; private set; }
     public DateTime? EndWorkingDate { get; private set; }
+    public string? WebSite { get; private set; }
+    public StoredFile? Logo { get; private set; }
 
     [NotMapped]
     public bool IsValid
@@ -39,6 +41,11 @@ public sealed record WorkPlace
             }
             return isValid;
         }
+    }
+
+    public void SetLogo(StoredFile? logo)
+    {
+        Logo = logo;
     }
 }
 

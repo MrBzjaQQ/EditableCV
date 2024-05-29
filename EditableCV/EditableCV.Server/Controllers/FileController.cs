@@ -1,4 +1,5 @@
 ﻿using EditableCV.Services.Files;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EditableCV.Server.Controllers;
@@ -6,7 +7,7 @@ namespace EditableCV.Server.Controllers;
 [Route(FileControllerUrl)]
 public class FileController: ControllerBase
 {
-    public const string FileControllerUrl = "api/file";
+    internal const string FileControllerUrl = "api/file";
     private readonly IFilesService _service;
 
     public FileController(IFilesService service)
@@ -15,6 +16,7 @@ public class FileController: ControllerBase
     }
 
     [HttpGet("{filename}", Name = nameof(GetFileAsync))]
+    [AllowAnonymous]
     public async Task<IActionResult> GetFileAsync(string filename)
     {
         var result = await _service.GetFileAsync(filename, HttpContext.RequestAborted);

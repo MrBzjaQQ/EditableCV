@@ -24,9 +24,12 @@ namespace EditableCV.Server.Profiles
 
         private void CreateWorkPlaceMapping()
         {
-            CreateMap<WorkPlace, WorkPlaceReadDto>();
-            CreateMap<WorkPlaceCreateDto, WorkPlace>();
-            CreateMap<WorkPlaceUpdateDto, WorkPlace>();
+            CreateMap<WorkPlace, WorkPlaceReadDto>()
+                .ForMember(dest => dest.LogoUrl, config => config.Ignore());
+            CreateMap<WorkPlaceCreateDto, WorkPlace>()
+                .ForMember(dest => dest.Logo, config => config.Ignore());
+            CreateMap<WorkPlaceUpdateDto, WorkPlace>()
+                .ForMember(dest => dest.Logo, config => config.Ignore());
             CreateMap<WorkPlace, WorkPlaceUpdateDto>();
         }
 

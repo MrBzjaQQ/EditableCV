@@ -22,15 +22,15 @@ internal sealed class LandingService(
     private readonly IEducationService _educationService = educationService;
     private readonly IMapper _mapper = mapper;
 
-    public async Task<LandingReadDto> GetLandingDataAsync(string photoControllerUrl, CancellationToken cancellationToken)
+    public async Task<LandingReadDto> GetLandingDataAsync(string fileControllerUrl, CancellationToken cancellationToken)
     {
         return new LandingReadDto
         {
-            CommonInfo = await _commonInfoService.GetCommonInfoAsync(photoControllerUrl, cancellationToken),
+            CommonInfo = await _commonInfoService.GetCommonInfoAsync(fileControllerUrl, cancellationToken),
             ContactInfo = await _contactInfoService.GetAllContactInfosAsync(cancellationToken),
             Education = await _educationService.GetAllInstitutionsAsync(cancellationToken),
             Skills = await _skillsService.GetSkillsAsync(cancellationToken),
-            WorkPlaces = await _workPlacesService.GetAllWorkPlacesAsync(cancellationToken),
+            WorkPlaces = await _workPlacesService.GetAllWorkPlacesAsync(fileControllerUrl, cancellationToken),
         };
     }
 }

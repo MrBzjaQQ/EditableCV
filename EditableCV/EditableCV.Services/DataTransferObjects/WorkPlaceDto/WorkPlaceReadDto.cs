@@ -15,4 +15,6 @@ public sealed record WorkPlaceReadDto
         }
     }
     public DateTime? EndWorkingDate { get; init; }
+    public string? WebSite { get; init; }
+    public string? LogoUrl { get; init; }
 }
