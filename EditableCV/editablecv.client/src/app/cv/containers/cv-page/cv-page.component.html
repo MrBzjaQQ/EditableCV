@@ -1,7 +1,11 @@
-<article class="cv">
-    <common-info [commonInfo]="$commonInfo | async"></common-info>
-    <contact-info [contactInfos]="$contactInfo | async"></contact-info>
-    <skils [skills]="$skills | async"></skils>
-    <work-places [workPlaces]="$workPlaces | async"></work-places>
-    <education [institutions]="$education | async"></education>
-</article>
+<main class="cv container">
+    <aside class="cv__aside">
+        <common-info [commonInfo]="$commonInfo | async"></common-info>
+        <contact-info [contactInfos]="$contactInfo | async"></contact-info>
+        <skils [skills]="$skills | async"></skils>
+    </aside>
+    <article class="cv__main">
+        <work-places [workPlaces]="$workPlaces | async"></work-places>
+        <education [institutions]="$education | async"></education>
+    </article>
+</main>

@@ -20,6 +20,7 @@ namespace EditableCV.Dal.WorkPlaceData
         public async Task<WorkPlace?> GetWorkPlaceByIdAsync(int id, CancellationToken cancellationToken)
         {
             return await _context.WorkPlaces.Include(x => x.Logo).FirstOrDefaultAsync(item => item.Id == id, cancellationToken);
+        
         }
 
         public async Task CreateWorkPlaceAsync(WorkPlace place, CancellationToken cancellationToken)

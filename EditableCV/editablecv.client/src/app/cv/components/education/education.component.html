@@ -1,16 +1,29 @@
 <article class="education">
     <h3 class="education__title">Образование</h3>
-    <section *ngFor="let institution of institutions" class="institution">
-        <div class="institution__title">{{ institution.institution }}</div>
-        <div class="institution__faculty">{{ institution.faculty }}</div>
-        <div class="institution__dates">
-            <span class="institution__date">{{ institution.startDate | date }}</span>
-            <span *ngIf="institution.isCurrentlyStudying; else finishedEducation"> - по настоящее время.</span>
-            <ng-template #finishedEducation>
-                <span> - </span>
-                <span class="institution__date">{{ institution.endDate | date }}</span>
-            </ng-template>
+    <section *ngFor="let institution of orderedInstitutions" class="institution">
+        <div class="institution__title">
+            <span class="institution__text-bold">Образовательное учреждение: </span>
+            <span class="institution__text-normal">{{ institution.institution }}</span>
         </div>
-        <div class="institution__progress">{{ institution.progress }}</div>
+        <div class="institution__faculty">
+            <span class="institution__text-bold">Кафедра/подразделение: </span>
+            <span class="institution__text-normal">{{ institution.faculty }}</span>
+        </div>
+        <div class="institution__dates">
+            <span class="institution__text-bold">Период обучения: </span>
+            <span class="institution__text-normal">
+                <span class="institution__date">{{ institution.startDate | date: dateFormat }} г.</span>
+                <span *ngIf="institution.isCurrentlyStudying; else finishedEducation"> - по настоящее время.</span>
+                <ng-template #finishedEducation>
+                    <span> - </span>
+                    <span class="institution__date">{{ institution.endDate | date: dateFormat }} г.</span>
+                </ng-template>
+            </span>
+        </div>
+        <div class="institution__progress">
+            <span class="institution__text-bold">Результат: </span>
+            <span class="institution__text-normal">{{ institution.progress }}</span>
+        </div>
+        <hr class="institution__hr">
     </section>
 </article>

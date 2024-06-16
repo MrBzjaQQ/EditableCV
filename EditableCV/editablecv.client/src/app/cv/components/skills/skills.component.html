@@ -1,7 +1,10 @@
 <article class="skills">
     <h3 class="skills__title">Навыки</h3>
-    <section *ngFor="let skill of skills" class="skill">
-        <div class="skill__name">{{ skill.name }}</div>
-        <div class="skill__description">{{ skill.description }}</div>
+    <section class="skills__wrapper">
+        <div *ngFor="let skill of skills" class="skill">
+            <div class="skill__name">{{ skill.name }}</div>
+            <div class="skill__description" [innerHTML]="skill.description"></div>
+            <hr class="skill__hr">
+        </div>
     </section>
 </article>

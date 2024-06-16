@@ -7,5 +7,6 @@ public sealed record CommonInfoReadDto
     public string? PatronymicName { get; init; }
     public int Age { get; init; }
     public string? PhotoUrl { get; init; }
+    public decimal Salary { get; init; }
 }
 

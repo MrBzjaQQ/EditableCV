@@ -8,6 +8,7 @@ public sealed record CommonInfo
     public string? PatronymicName { get; private set; } = string.Empty;
     public DateTime DateOfBirth { get; private set; }
     public StoredFile? Photo { get; private set; }
+    public decimal Salary { get; private set; }
 
     public void SetPhoto(StoredFile? photo)
     {

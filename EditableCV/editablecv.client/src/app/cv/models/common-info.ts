@@ -4,4 +4,5 @@ export interface CommonInfo {
     patronymicName: string;
     age: number;
     photoUrl?: string;
+    salary: number;
 }

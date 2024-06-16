@@ -1,0 +1,19 @@
+.institution {
+    &__hr {
+        border-top: 1px dashed black;
+    }
+
+    &__text-bold {
+        font-weight: bold;
+    }
+
+    &__text-normal {
+        font-weight: normal;
+    }
+
+    &:last-child {
+        .institution__hr {
+            display: none;
+        }
+    }
+}

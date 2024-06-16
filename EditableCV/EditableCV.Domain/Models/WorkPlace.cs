@@ -5,8 +5,10 @@ namespace EditableCV.Domain.Models;
 public sealed record WorkPlace
 {
     public int Id { get; private set; }
-    public string CompanyName { get; private set; } = null!;
-    public string Position { get; private set; } = null!;
+    public string CompanyName { get; private set; } = 
+        null!;
+    public string Position { get; private set; } = 
+        null!;
     public string? Experience { get; private set; }
     public DateTime StartWorkingDate { get; private set; }
     public DateTime? EndWorkingDate { get; private set; }

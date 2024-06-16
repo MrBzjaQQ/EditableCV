@@ -1,0 +1,23 @@
+.skills__wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column nowrap;
+}
+
+.skill {
+    margin: 5px;
+
+    &__name {
+        font-weight: bold;
+    }
+
+    &__hr {
+        border-top: 1px dashed black;
+    }
+
+    &:last-child {
+        .skill__hr {
+            display: none;
+        }
+    }
+}

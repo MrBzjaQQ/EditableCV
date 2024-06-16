@@ -76,6 +76,7 @@ internal sealed class WorkPlacesService(IWorkPlacesRepository repository, IFileR
     public async Task<Response> EditWorkPlaceAsync(int id, WorkPlaceUpdateDto workPlaceUpdateDto, CancellationToken cancellationToken)
     {
         var workPlace = await _repository.GetWorkPlaceByIdAsync(id, cancellationToken);
+        
         if (workPlace == null)
         {
             return Response.CreateFailed(System.Net.HttpStatusCode.NotFound, string.Format(ErrorStrings.NotFoundByIdTemplate, id));
@@ -85,7 +86,6 @@ internal sealed class WorkPlacesService(IWorkPlacesRepository repository, IFileR
         var result = Response.CreateSuccess(System.Net.HttpStatusCode.NoContent);
         if (string.IsNullOrEmpty(workPlaceUpdateDto.LogoFileName))
         {
-            await _repository.CreateWorkPlaceAsync(workPlace, cancellationToken);
             await _repository.SaveChangesAsync(cancellationToken);
             return result;
         }
@@ -93,13 +93,11 @@ internal sealed class WorkPlacesService(IWorkPlacesRepository repository, IFileR
         var file = await _fileRepository.GetFileByNameAsync(workPlaceUpdateDto.LogoFileName, cancellationToken);
         if (file == null)
         {
-            await _repository.CreateWorkPlaceAsync(workPlace, cancellationToken);
             await _repository.SaveChangesAsync(cancellationToken);
             return result;
         }
 
         workPlace.SetLogo(file);
-        await _repository.CreateWorkPlaceAsync(workPlace, cancellationToken);
         await _repository.SaveChangesAsync(cancellationToken);
         return result;
     }

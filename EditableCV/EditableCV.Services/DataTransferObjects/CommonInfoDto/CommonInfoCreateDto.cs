@@ -6,4 +6,5 @@ public sealed record CommonInfoCreateDto
     public string? PatronymicName { get; init; }
     public DateTime DateOfBirth { get; init; }
     public string? PhotoFileName { get; init; }
+    public decimal Salary { get; init; }
 }

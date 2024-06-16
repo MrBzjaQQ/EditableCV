@@ -1,0 +1,25 @@
+.common-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+
+    &__photo {
+        max-width: 120px;
+        max-height: 160px;
+        margin-bottom: 10px;
+    }
+
+    &__age, &__name {
+        margin: 0;
+        text-align: left;
+    }
+
+    &__text-bold {
+        font-weight: bold;
+    }
+
+    &__salary {
+        margin-top: 10px;
+    }
+}

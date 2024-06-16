@@ -1,0 +1,14 @@
+.contact-info {
+    &__name {
+        font-weight: bold;
+    }
+
+    &__list {
+        padding: 0;
+    }
+
+    &__list-item {
+        list-style-type: none;
+        text-align: left;
+    }
+}

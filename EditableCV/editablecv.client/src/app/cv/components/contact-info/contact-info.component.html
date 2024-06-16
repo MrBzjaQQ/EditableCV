@@ -1,8 +1,7 @@
 <section class="contact-info">
     <ul class="contact-info__list">
         <li *ngFor="let contactInfo of contactInfos" class="contact-info__list-item">
-            <span class="contact-info__name">{{ contactInfo.name }}</span>
-            <span>: </span>
+            <span class="contact-info__name">{{ contactInfo.name }}: </span>
             <span class="contact-info__value">{{ contactInfo.value }}</span>
         </li>
     </ul>
