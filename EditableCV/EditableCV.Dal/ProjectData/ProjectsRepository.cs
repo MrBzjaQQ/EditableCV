@@ -28,11 +28,11 @@ public sealed class ProjectsRepository : RepositoryBase, IProjectsRepository
 
     public async Task<IList<Project>> GetAllProjectsAsync(CancellationToken cancellationToken)
     {
-        return await _context.Projects.ToListAsync(cancellationToken);
+        return await _context.Projects.Include(x => x.Image).ToListAsync(cancellationToken);
     }
 
     public async Task<Project?> GetProjectByIdAsync(int id, CancellationToken cancellationToken)
     {
-        return await _context.Projects.FirstOrDefaultAsync(project => project.Id == id, cancellationToken);
+        return await _context.Projects.Include(x => x.Image).FirstOrDefaultAsync(project => project.Id == id, cancellationToken);
     }
 }

@@ -1,0 +1,38 @@
+.projects {
+    &__title {
+        margin-top: 0;
+    }
+}
+
+.project {
+    &__content-wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    &__picture {
+        margin-right: 10px;
+    }
+
+    &__picture-img {
+        width: 80px;
+    }
+
+    &__text-bold {
+        font-weight: bold;
+    }
+
+    &__text-normal {
+        font-weight: normal;
+    }
+
+    &__hr {
+        border-top: 1px dashed gray;
+    }
+
+    &:last-child {
+        .project__hr {
+            display: none;
+        }
+    }
+}

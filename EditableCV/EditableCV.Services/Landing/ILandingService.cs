@@ -1,4 +1,4 @@
-﻿using EditableCV.Services.LandingDto;
+﻿using EditableCV.Services.DataTransferObjects.LandingDto;
 
 namespace EditableCV.Services.Landing;
 public interface ILandingService

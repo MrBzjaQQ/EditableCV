@@ -1,0 +1,35 @@
+<article class="projects">
+    <h3 class="projects__title">Pet-проекты</h3>
+    <section *ngFor="let project of projects" class="project">
+        <div class="project__content-wrapper">
+            <div *ngIf="project.imageUrl" class="project__picture">
+                <img [src]="project.imageUrl" class="project__picture-img">
+            </div>
+            <div class="project__content">
+                <div class="project__name">
+                    <span class="project__text-bold">Название проекта: </span>
+                    <span class="project__text-normal">{{ project.projectName }}</span>
+                </div>
+                <div *ngIf="project.projectUrl" class="project__url">
+                    <span class="project__text-bold">Ссылка на проект: </span>
+                    <a
+                        class="project__text-normal"
+                        [href]="project.projectUrl"
+                        target="_blank">
+                        {{ project.projectUrl }}
+                    </a>
+                </div>
+                <div *ngIf="project.repositoryUrl" class="project__url">
+                    <span class="project__text-bold">Ссылка на репозиторий: </span>
+                    <a
+                        class="project__text-normal"
+                        [href]="project.repositoryUrl"
+                        target="_blank">
+                        {{ project.repositoryUrl }}
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr class="project__hr">
+    </section>
+</article>

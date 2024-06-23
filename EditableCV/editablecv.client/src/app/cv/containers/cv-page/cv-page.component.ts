@@ -13,6 +13,8 @@ import { Institution } from '../../models/institution';
 import { WorkPlace } from '../../models/work-place';
 import { Skill } from '../../models/skill';
 import { CvModule } from '../../cv.module';
+import { ProjectsComponent } from '../../components/projects/projects.component';
+import { Project } from '../../models/project';
 
 @Component({
   selector: 'app-cv-page',
@@ -24,7 +26,8 @@ import { CvModule } from '../../cv.module';
     ContactInfoComponent,
     EducationComponent,
     SkilsComponent,
-    WorkPlacesComponent
+    WorkPlacesComponent,
+    ProjectsComponent
   ],
   templateUrl: './cv-page.component.html',
   styleUrl: './cv-page.component.scss'
@@ -35,6 +38,7 @@ export class CvPageComponent {
   $education: Observable<Institution[] | undefined>;
   $skills: Observable<Skill[] | undefined>;
   $workPlaces: Observable<WorkPlace[] | undefined>;
+  $projects: Observable<Project[] | undefined>;
 
   constructor(apiService: ApiService) {
     const cv = apiService.getLandingData().pipe(shareReplay(1));
@@ -43,5 +47,6 @@ export class CvPageComponent {
     this.$education = cv.pipe(map(cvdata => cvdata.education));
     this.$skills = cv.pipe(map(cvdata => cvdata.skills));
     this.$workPlaces = cv.pipe(map(cvdata => cvdata.workPlaces));
+    this.$projects = cv.pipe(map(cvdata => cvdata.projects));
   }
 }

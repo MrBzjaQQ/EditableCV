@@ -3,34 +3,36 @@
     <section class="work-places__wrapper">
         <section *ngFor="let workplace of orderedWorkPlaces" class="work-place">
             <div class="work-place__content-wrapper">
-            <div *ngIf="workplace.logoUrl" class="work-place__logo">
-                <img [src]="workplace.logoUrl" class="work-place__logo-img">
+                <div *ngIf="workplace.logoUrl" class="work-place__logo">
+                    <img [src]="workplace.logoUrl" class="work-place__logo-img">
+                </div>
+                <div class="work-place__content">
+                    <div class="work-place__company-name">
+                        <span class="work-place__text-bold">Организация: </span>
+                        <span class="work-place__text-normal">{{ workplace.companyName }}</span>
+                    </div>
+                    <div *ngIf="workplace.webSite" class="work-place__web-site">
+                        <span class="work-place__text-bold">Сайт: </span>
+                        <a href="workplace.webSite" class="work-place__text-normal" title="org site">{{
+                            workplace.webSite }}</a>
+                    </div>
+                    <div class="work-place__position">
+                        <span class="work-place__text-bold">Должность: </span>
+                        <span class="work-place__text-normal">{{ workplace.position }}</span>
+                    </div>
+                    <div class="work-place__dates">
+                        <span class="work-place__text-bold">Период работы: </span>
+                        <span class="work-place__date">{{ workplace.startWorkingDate | date: dateFormat }} г.</span>
+                        <span *ngIf="workplace.isCurrentlyWorking; else leftTheCompany"> - по настоящее время</span>
+                        <ng-template #leftTheCompany>
+                            <span> - </span>
+                            <span class="work-place__date">{{ workplace.endWorkingDate | date: dateFormat }} г.</span>
+                        </ng-template>
+                    </div>
+                    <div *ngIf="workplace.experience" class="work-place__experience" [innerHtml]="workplace.experience">
+                    </div>
+                </div>
             </div>
-            <div class="work-place__content">
-                <div class="work-place__company-name">
-                    <span class="work-place__text-bold">Организация: </span>
-                    <span class="work-place__text-normal">{{ workplace.companyName }}</span>
-                </div>
-                <div *ngIf="workplace.webSite" class="work-place__web-site">
-                    <span class="work-place__text-bold">Сайт: </span>
-                    <a href="workplace.webSite" class="work-place__text-normal" title="org site">{{ workplace.webSite }}</a>
-                </div>
-                <div class="work-place__position">
-                    <span class="work-place__text-bold">Должность: </span>
-                    <span class="work-place__text-normal">{{ workplace.position }}</span>
-                </div>
-                <div class="work-place__dates">
-                    <span class="work-place__text-bold">Период работы: </span>
-                    <span class="work-place__date">{{ workplace.startWorkingDate | date: dateFormat }} г.</span>
-                    <span *ngIf="workplace.isCurrentlyWorking; else leftTheCompany"> - по настоящее время</span>
-                    <ng-template #leftTheCompany>
-                        <span> - </span>
-                        <span class="work-place__date">{{ workplace.endWorkingDate | date: dateFormat }} г.</span>
-                    </ng-template>
-                </div>
-                <div *ngIf="workplace.experience" class="work-place__experience" [innerHtml]="workplace.experience"></div>
-            </div>
-        </div>
             <hr class="work-place__hr">
         </section>
     </section>

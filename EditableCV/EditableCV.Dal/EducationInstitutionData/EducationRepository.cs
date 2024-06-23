@@ -37,7 +37,7 @@ namespace EditableCV.Dal.EducationInstitutionData
             return await _context.EducationalInstitutions.ToListAsync(cancellationToken);
         }
 
-        public async Task<EducationalInstitution> GetInstitutionByIdAsync(int id, CancellationToken cancellationToken)
+        public async Task<EducationalInstitution?> GetInstitutionByIdAsync(int id, CancellationToken cancellationToken)
         {
             return await _context.EducationalInstitutions.FirstOrDefaultAsync(item => item.Id == id, cancellationToken);
         }

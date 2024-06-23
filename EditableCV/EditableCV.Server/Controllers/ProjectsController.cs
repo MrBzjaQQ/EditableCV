@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EditableCV.Server.Controllers;
 
-[Microsoft.AspNetCore.Components.Route("api/controller")]
+[Route("api/projects")]
 [ApiController]
 public class ProjectsController: ControllerBase
 {

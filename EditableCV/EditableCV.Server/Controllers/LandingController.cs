@@ -1,5 +1,5 @@
-﻿using EditableCV.Services.Landing;
-using EditableCV.Services.LandingDto;
+﻿using EditableCV.Services.DataTransferObjects.LandingDto;
+using EditableCV.Services.Landing;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

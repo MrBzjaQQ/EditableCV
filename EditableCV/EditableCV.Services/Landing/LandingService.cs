@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using EditableCV.Services.CommonInfo;
 using EditableCV.Services.ContactInfo;
+using EditableCV.Services.DataTransferObjects.LandingDto;
 using EditableCV.Services.Education;
-using EditableCV.Services.LandingDto;
+using EditableCV.Services.Projects;
 using EditableCV.Services.Skills;
 using EditableCV.Services.WorkPlaces;
 
@@ -13,24 +14,19 @@ internal sealed class LandingService(
     IWorkPlacesService workPlacesService,
     ISkillsService skillsService,
     IEducationService educationService,
-    IMapper mapper) : ILandingService
+    IProjectsService projectsService) : ILandingService
 {
-    private readonly ICommonInfoService _commonInfoService = commonInfoService;
-    private readonly IContactInfoService _contactInfoService = contactInfoService;
-    private readonly IWorkPlacesService _workPlacesService = workPlacesService;
-    private readonly ISkillsService _skillsService = skillsService;
-    private readonly IEducationService _educationService = educationService;
-    private readonly IMapper _mapper = mapper;
 
     public async Task<LandingReadDto> GetLandingDataAsync(string fileControllerUrl, CancellationToken cancellationToken)
     {
         return new LandingReadDto
         {
-            CommonInfo = await _commonInfoService.GetCommonInfoAsync(fileControllerUrl, cancellationToken),
-            ContactInfo = await _contactInfoService.GetAllContactInfosAsync(cancellationToken),
-            Education = await _educationService.GetAllInstitutionsAsync(cancellationToken),
-            Skills = await _skillsService.GetSkillsAsync(cancellationToken),
-            WorkPlaces = await _workPlacesService.GetAllWorkPlacesAsync(fileControllerUrl, cancellationToken),
+            CommonInfo = await commonInfoService.GetCommonInfoAsync(fileControllerUrl, cancellationToken),
+            ContactInfo = await contactInfoService.GetAllContactInfosAsync(cancellationToken),
+            Education = await educationService.GetAllInstitutionsAsync(cancellationToken),
+            Skills = await skillsService.GetSkillsAsync(cancellationToken),
+            WorkPlaces = await workPlacesService.GetAllWorkPlacesAsync(fileControllerUrl, cancellationToken),
+            Projects = await projectsService.GetAllProjectsAsync(fileControllerUrl, cancellationToken)
         };
     }
 }

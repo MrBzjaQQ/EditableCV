@@ -31,7 +31,7 @@ public sealed class ProjectsService: IProjectsService
             var resultItem = _mapper.Map<ProjectReadDto>(project);
             if (project.Image != null)
             {
-                result.Add(resultItem with { ProjectUrl = FileUrlHelper.GetFileUrl(fileControllerUrl, project.Image.FileName)});
+                result.Add(resultItem with { ImageUrl = FileUrlHelper.GetFileUrl(fileControllerUrl, project.Image.FileName)});
                 continue;
             }
             
