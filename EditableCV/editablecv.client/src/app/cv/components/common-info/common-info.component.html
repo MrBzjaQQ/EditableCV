@@ -2,7 +2,7 @@
     <img class="common-info__photo" *ngIf="commonInfo?.photoUrl" [src]="commonInfo?.photoUrl" title="photo">
     <h2 class="common-info__name">{{ fullName }}</h2>
     <p *ngIf="age" class="common-info__age">{{ age }}</p>
-    <div class="common-info__salary">
+    <div *ngIf="commonInfo?.salary" class="common-info__salary">
         <span class="common-info__text-bold">Ожидаемый уровень заработной платы: </span>
         <span class="common-info__text-normal">{{ commonInfo?.salary }} руб.</span>
     </div>

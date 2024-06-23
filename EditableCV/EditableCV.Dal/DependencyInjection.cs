@@ -2,6 +2,7 @@
 using EditableCV.Dal.ContactInfoData;
 using EditableCV.Dal.EducationInstitutionData;
 using EditableCV.Dal.FileData;
+using EditableCV.Dal.ProjectData;
 using EditableCV.Dal.SkillsData;
 using EditableCV.Dal.WorkPlaceData;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ public static class DependencyInjection
         services.AddTransient<ISkillsRepository, SkillsRepository>();
         services.AddTransient<IContactInfoRepository, ContactInfoRepository>();
         services.AddTransient<IFileRepository, FileRepository>();
+        services.AddTransient<IProjectsRepository, ProjectsRepository>();
 
         return services;
     }

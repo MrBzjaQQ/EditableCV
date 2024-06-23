@@ -46,7 +46,7 @@ internal sealed class WorkPlacesService(IWorkPlacesRepository repository, IFileR
             return Response<WorkPlaceReadDto>.CreateSuccess(result with { LogoUrl = FileUrlHelper.GetFileUrl(fileControllerUrl, workPlace.Logo.FileName) });
         }
 
-        return Response<WorkPlaceReadDto>.CreateSuccess(_mapper.Map<WorkPlaceReadDto>(result));
+        return Response<WorkPlaceReadDto>.CreateSuccess(result);
     }
 
     public async Task<WorkPlaceReadDto> AddWorkPlaceAsync(WorkPlaceCreateDto workPlaceCreateDto, string fileControllerUrl, CancellationToken cancellationToken)

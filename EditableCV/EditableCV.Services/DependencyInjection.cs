@@ -14,6 +14,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using EditableCV.Services.Projects;
 
 namespace EditableCV.Services;
 public static class DependencyInjection
@@ -27,6 +28,7 @@ public static class DependencyInjection
         services.AddTransient<IWorkPlacesService, WorkPlacesService>();
         services.AddTransient<ILandingService, LandingService>();
         services.AddTransient<IFilesService, FilesService>();
+        services.AddTransient<IProjectsService, ProjectsService>();
 
         return services;
     }

@@ -8,11 +8,12 @@ namespace EditableCV_backend.Data
     {
         public ResumeContext(DbContextOptions<ResumeContext> options) : base(options) {}
 
-        public DbSet<WorkPlace> WorkPlaces { get; set; }
-        public DbSet<StoredFile> Files { get; set; }
-        public DbSet<CommonInfo> CommonInfos { get; set; }
-        public DbSet<EducationalInstitution> EducationalInstitutions { get; set; }
-        public DbSet<Skill> Skills { get; set; }
-        public DbSet<ContactInfo> ContactInfos { get; set; }
+        public DbSet<WorkPlace> WorkPlaces { get; init; }
+        public DbSet<StoredFile> Files { get; init; }
+        public DbSet<CommonInfo> CommonInfos { get; init; }
+        public DbSet<EducationalInstitution> EducationalInstitutions { get; init; }
+        public DbSet<Skill> Skills { get; init; }
+        public DbSet<ContactInfo> ContactInfos { get; init; }
+        public DbSet<Project> Projects { get; init; }
     }
 }

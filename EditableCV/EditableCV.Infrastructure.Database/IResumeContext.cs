@@ -11,4 +11,5 @@ public interface IResumeContext: IDbContext
     DbSet<EducationalInstitution> EducationalInstitutions { get; }
     DbSet<Skill> Skills { get; }
     DbSet<ContactInfo> ContactInfos { get; }
+    DbSet<Project> Projects { get; }
 }
